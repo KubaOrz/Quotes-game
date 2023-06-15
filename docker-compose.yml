@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  db:
+    container_name: db
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=B9olP6_&
+      - MYSQL_DATABASE=quotes_game
+      - MYSQL_USER=kuba
+      - MYSQL_PASSWORD=B9olP6_&
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    container_name: quotes
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    ports:
+      - "8000:80"
+    depends_on:
+      db:
+        condition: service_healthy
+  

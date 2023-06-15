@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+img {
+    width: 20%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+#quote {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    max-width: 80%;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.button {
+    margin-right: 10px;
+    width: 20vh;
+    aspect-ratio: 2.3;
+    background-color: #47a15f;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    border-width: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.button:hover {
+  background-color: #3f8f54;
+  scale: 1.05;
+}
